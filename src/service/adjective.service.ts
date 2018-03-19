@@ -34,7 +34,6 @@ export class AdjectiveService {
   ];
 
   usersAdjective: string;
-  returnString: string;
 
   constructor() { }
 
@@ -46,7 +45,8 @@ export class AdjectiveService {
       }
       if (this.Adjectives[index].substring(0, 1) === userInput.toUpperCase().substring(0, 1)) {
         this.usersAdjective = this.Adjectives[index];
-        alert(this.usersAdjective + ' *Pokemon Name*');
+        alert(this.usersAdjective + ' ' + userInput);
+        break;
       } else {
         console.log('Nope ' + this.Adjectives[index] + ' does not = ' + userInput);
       }
