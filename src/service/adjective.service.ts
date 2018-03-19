@@ -41,6 +41,7 @@ export class AdjectiveService {
   constructor(private http: HttpClient) { }
 
   getFirstLetter(userInput: string) {
+  // unused function
     this.http.get('https://pokeapi.co/api/v2/pokemon/' + userInput.toLowerCase()).subscribe(next => {
       userInput = next.name;
     }, (failure) => {
@@ -67,19 +68,14 @@ export class AdjectiveService {
   }
 
   makePokemonArray() {
-    this.http.get('https://pokeapi.co/api/v2/pokemon/?limit=850').subscribe(next => {
+    this.http.get('https://pokeapi.co/api/v2/pokemon/?limit=975').subscribe(next => {
       this.pokemonArray = next.results;
     }, (failure) => {
-      alert('There seems to be a problem');
+      alert('There seems to be a problem ' + JSON.stringify(failure));
     }, () => {
-      // for (let index = 0; index < this.pokemonArray.length; index++) {
-      //   console.log(this.pokemonArray[index].name);
-      // }
       console.log(this.pokemonArray.length + ' pokemon loaded');
       });
     }
-
-
 
   searchPokemonArray(userInput: string) {
     this.pokemonFilteredArray = [];
