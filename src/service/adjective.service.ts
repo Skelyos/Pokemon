@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Alert } from 'selenium-webdriver';
 
 @Injectable()
 export class AdjectiveService {
@@ -13,37 +14,43 @@ export class AdjectiveService {
     'Giant',
     'Heavy',
     'Intelligent',
-    'J',
-    'K',
+    'Jovial',
+    'Keen',
     'Lucky',
     'Mad',
     'Nervous',
     'Old',
     'Popular',
-    'Q',
+    'Quixotic',
     'Responsible',
     'Strong',
     'Traditional',
     'Unhappy',
-    'V',
-    'W',
-    'X',
-    'Y',
-    'Z',
+    'Vicious',
+    'Weak',
+    'Xeric',
+    'Young',
+    'Zealous',
   ];
 
   usersAdjective: string;
+  returnString: string;
 
   constructor() { }
 
   getFirstLetter(userInput: string) {
     for (let index = 0; index < this.Adjectives.length; index++) {
-      if (this.Adjectives[index].substring(0, 1) === userInput.substring(0, 1)) {
+      if (userInput === undefined || userInput === '') {
+        alert('Users input cannot be blank');
+        break;
+      }
+      if (this.Adjectives[index].substring(0, 1) === userInput.toUpperCase().substring(0, 1)) {
         this.usersAdjective = this.Adjectives[index];
-        alert(this.usersAdjective);
+        alert(this.usersAdjective + ' *Pokemon Name*');
       } else {
-        console.log('Nope ' + this.Adjectives[index]);
+        console.log('Nope ' + this.Adjectives[index] + ' does not = ' + userInput);
       }
     }
   }
+
 }

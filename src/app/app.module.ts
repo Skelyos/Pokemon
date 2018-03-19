@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { AdjectiveService } from '../service/adjective.service';
 import { TestComponent } from './test/test.component';
 import { FormsModule } from '@angular/forms';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 const appRoutes: Routes = [
   { path: '', component: TestComponent },
@@ -20,7 +21,8 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     RouterModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [AdjectiveService],
   bootstrap: [AppComponent]
