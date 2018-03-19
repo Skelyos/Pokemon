@@ -13,9 +13,10 @@ export class TestComponent implements OnInit {
   constructor(private adjectiveService: AdjectiveService) { }
 
   ngOnInit() {
+    this.adjectiveService.makePokemonArray();
   }
 
   searchAdjective() {
-    this.adjectiveService.getFirstLetter(this.UserInput);
+    this.adjectiveService.searchPokemonArray(this.UserInput);
   }
 }
