@@ -37,16 +37,12 @@ export class AdjectiveService {
   constructor() { }
 
   getFirstLetter(userInput: string) {
-
     for (let index = 0; index < this.Adjectives.length; index++) {
       if (this.Adjectives[index].substring(0, 1) === userInput.substring(0, 1)) {
         this.usersAdjective = this.Adjectives[index];
         alert(this.usersAdjective);
-        debugger;
-      }
-      else {
+      } else {
         console.log('Nope ' + this.Adjectives[index]);
-        debugger;
       }
     }
   }

@@ -5,6 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { AdjectiveService } from '../service/adjective.service';
 import { TestComponent } from './test/test.component';
+import { FormsModule } from '@angular/forms';
 
 const appRoutes: Routes = [
   { path: '', component: TestComponent },
@@ -18,7 +19,8 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
-    RouterModule
+    RouterModule,
+    FormsModule
   ],
   providers: [AdjectiveService],
   bootstrap: [AppComponent]

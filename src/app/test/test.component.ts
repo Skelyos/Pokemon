@@ -16,7 +16,6 @@ export class TestComponent implements OnInit {
   }
 
   searchAdjective() {
-    this.adjectiveService.getFirstLetter(this.UserInput);
-    debugger;
+    this.adjectiveService.getFirstLetter(this.UserInput.toUpperCase());
   }
 }
