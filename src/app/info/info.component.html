@@ -1,3 +1,59 @@
-<h1>
-  Info works!
-</h1>
+<div class="row">
+  <div class = "col">
+      <div *ngFor = "let sprite of SpritesList; let i = index">
+        <div *ngIf="(imageIndex % SpritesList.length) === i">
+          <img [src]= "sprite" >
+        </div>
+      </div>
+  </div>
+</div>
+
+<input type="submit" name="next" [value]="imgBtnText" (click)="incrementSpriteIndex()">
+
+<div class="container">
+  <div class = "row">
+    <div class="col">
+      <h2> Skill list: </h2>
+    </div>
+    <div class="col">
+      <span *ngFor = "let moves of MoveList;">
+        {{ moves.move.name }}
+      </span>
+    </div>
+  </div>
+
+  <div class = "row">
+    <div class="col">
+      <h2> Type list: </h2>
+    </div>
+    <div class="col">
+      <span *ngFor = "let type of Types;">
+        {{ type.type.name }}
+      </span>
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+  <div class = "row">
+    <div class="col">
+      <h2> Weakness list: </h2>
+    </div>
+    <div class="col">
+      <span *ngFor = "let weakness of noDamageTo;">
+        {{ weakness }}
+      </span>
+    </div>
+    <div class="col">
+      <span *ngFor = "let weakness of halfDamageTo;">
+        {{ weakness }}
+      </span>
+    </div>
+    <div class="col">
+      <span *ngFor = "let weakness of doubleDamageTo;">
+        {{ weakness }}
+      </span>
+    </div>
+  </div>
+</div>
