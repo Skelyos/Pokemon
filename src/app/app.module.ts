@@ -4,12 +4,16 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 
-import { PokemonService } from './pokemon.service';
+
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+
+import { PokemonService } from '../service/pokemon.service';
+import { AdjectiveService } from '../service/adjective.service';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { InfoComponent } from './info/info.component';
+
 
 @NgModule({
   declarations: [
@@ -23,7 +27,7 @@ import { InfoComponent } from './info/info.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [PokemonService],
+  providers: [PokemonService, AdjectiveService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
