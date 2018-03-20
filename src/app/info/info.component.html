@@ -1,77 +1,80 @@
-<div class="container color-light textColour">
-  <div class="row">
-    <div class = "col">
-        <h1>{{ SearchPName }}</h1>
-    </div>
-  </div>
-  <div class="row">
-    <div class = "col">
-        <input type="button" name="back" [value]="backBtn" (click)="goBack()">
-    </div>
-  </div>
-</div>
+<div class="background">
+  <div class="color-light">
 
-<div class="container color-light">
-  <div class="row">
-    <div class = "col">
-        <div *ngFor = "let sprite of SpritesList; let i = index">
-          <div *ngIf="(imageIndex % SpritesList.length) === i">
-            <img [src]= "sprite" >
+    <div class="container color-light textColour">
+      <div class="row">
+        <div class = "col">
+            <h1>{{ SearchPName }}</h1>
+        </div>
+      </div>
+    </div>
+
+    <div class="container color-light">
+      <div class="row">
+        <div class = "col">
+          <div *ngFor = "let sprite of SpritesList; let i = index">
+            <div *ngIf="(imageIndex % SpritesList.length) === i">
+              <img [src]= "sprite" class="rounded-circle ">
+            </div>
+          </div>
+        </div>
+        <div class = "col">
+            <input type="button" class="btn btn-warning roundButton" name="next" [value]="imgBtnText" (click)="incrementSpriteIndex()">
+        </div>
+      </div>
+    </div>
+
+    <div class="container color-light textColour">
+        <div class="row">
+          <div class="col">
+            <h2>Weight:</h2>
+          </div>
+          <div class="col">
+              {{ Weight }}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+              <h2>Height:</h2>
+          </div>
+          <div class="col">
+            {{ Height }}
           </div>
         </div>
     </div>
-  </div>
 
-  <div class="row">
-    <div class = "col">
-        <input type="button" name="next" [value]="imgBtnText" (click)="incrementSpriteIndex()">
+    <div class="container color-light textColour">
+      <div class="row">
+        <div class="col">
+          <h2> Types: </h2>
+        </div>
+        <div class="col">
+          <span *ngFor = "let type of Types;">
+            {{ type.type.name }},
+          </span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <h2> Weaknesses: </h2>
+        </div>
+        <div class="col">
+          <span *ngFor = "let weakness of weaknessArray;">
+            {{ weakness }},
+          </span>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
 
-<div class="container color-light textColour">
-    <div class="row">
-      <div class="col">
-        <h2>Weight:</h2>
-      </div>
-      <div class="col">
-          {{ Weight }}
-      </div>
+    <div class="container">
+        <div class="centered">
+          <button type="button" class="btn btn-warning roundButton" name="back" (click)="goBack()"> {{ backBtn }} </button>
+        </div>
     </div>
-    <div class="row">
-      <div class="col">
-          <h2>Height:</h2>
-      </div>
-      <div class="col">
-        {{ Height }}
-      </div>
-    </div>
-</div>
 
-<div class="container color-light textColour">
-  <div class="row">
-    <div class="col">
-      <h2> Types: </h2>
-    </div>
-    <div class="col">
-      <span *ngFor = "let type of Types;">
-        {{ type.type.name }},
-      </span>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col">
-      <h2> Weaknesses: </h2>
-    </div>
-    <div class="col">
-      <span *ngFor = "let weakness of weaknessArray;">
-        {{ weakness }},
-      </span>
-    </div>
   </div>
 </div>
-
-<div class="container color-light textColour">
+<!-- <div class="container color-light textColour">
     <div class="row">
       <div class="col">
         <h2> Skills: </h2>
@@ -82,4 +85,4 @@
         </span>
       </div>
     </div>
-  </div>
+  </div> -->

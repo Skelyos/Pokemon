@@ -76,7 +76,6 @@ export class AdjectiveService {
       if (this.Adjectives[searchIndex].substring(0, 1) === this.rndPokemon.toUpperCase().substring(0, 1)) {
         this.usersAdjective = this.Adjectives[searchIndex];
         return this.usersAdjective + ' ' + this.rndPokemon;
-        break;
       } else {
         console.log('Nope ' + this.Adjectives[searchIndex] + ' does not = ' + this.rndPokemon);
       }

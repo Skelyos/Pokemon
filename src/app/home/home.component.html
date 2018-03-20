@@ -1,18 +1,18 @@
 <div class="background">
   <div class="color-light">
 
-    <div class="container">
+    <div class="container paddingTopBottom">
       <h1 class="h1colour centered">CODE NAME GENERATOR</h1>
     </div>
 
-    <div class="container">
+    <div class="container paddingBottom">
       <div class="centered">
           <input type="text" name="PSearchField" [placeholder]="textBoxTxt" [(ngModel)]="pokeLetter">
       </div>
     </div>
-    <div class="container">
+    <div class="container paddingBottomSml">
         <div class="centered">
-          <input type="button" name="PSubmitButton" [value]="btnText" (click)="findPokemon()">
+          <button class="btn btn-warning roundButton" type="button" name="PSubmitButton" (click)="findPokemon()">{{ btnText }}</button>
         </div>
     </div>
 

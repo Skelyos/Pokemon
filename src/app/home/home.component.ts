@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
 
   pokeLetter: string;
   pokemonName: string;
-  textBoxTxt = 'Choose a letter';
+  textBoxTxt = 'Choose your letter...';
   btnText: String = 'Search';
 
   constructor(public Adjective: AdjectiveService, private router: Router) { }
