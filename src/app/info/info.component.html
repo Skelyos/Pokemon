@@ -1,23 +1,30 @@
-<div class="container color-light">
-  <h1>{{ SearchPId }} {{ SearchPName }}</h1>  
+<div class="container color-light textColour">
+  <h1>{{ SearchPName }}</h1>
 </div>
 
-<div class="row">
-  <div class = "col">
-      <div *ngFor = "let sprite of SpritesList; let i = index">
-        <div *ngIf="(imageIndex % SpritesList.length) === i">
-          <img [src]= "sprite" >
+<div class="container color-light">
+  <div class="row">
+    <div class = "col">
+        <div *ngFor = "let sprite of SpritesList; let i = index">
+          <div *ngIf="(imageIndex % SpritesList.length) === i">
+            <img [src]= "sprite" >
+          </div>
         </div>
-      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class = "col">
+        <input type="submit" name="next" [value]="imgBtnText" (click)="incrementSpriteIndex()">
+    </div>
   </div>
 </div>
 
-<input type="submit" name="next" [value]="imgBtnText" (click)="incrementSpriteIndex()">
+<div class="container color-light textColour">
 
-<div class="container">
-  <div class = "row">
+  <div class="row">
     <div class="col">
-      <h2> Skill list: </h2>
+      <h2> Skills: </h2>
     </div>
     <div class="col">
       <span *ngFor = "let moves of MoveList;">
@@ -26,9 +33,9 @@
     </div>
   </div>
 
-  <div class = "row">
+  <div class="row">
     <div class="col">
-      <h2> Type list: </h2>
+      <h2> Types: </h2>
     </div>
     <div class="col">
       <span *ngFor = "let type of Types;">
@@ -36,13 +43,10 @@
       </span>
     </div>
   </div>
-</div>
 
-
-<div class="container">
-  <div class = "row">
+  <div class="row">
     <div class="col">
-      <h2> Weakness list: </h2>
+      <h2> Weaknesses: </h2>
     </div>
     <div class="col">
       <span *ngFor = "let weakness of weaknessArray;">
@@ -50,4 +54,5 @@
       </span>
     </div>
   </div>
+
 </div>

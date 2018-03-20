@@ -1,7 +1,20 @@
-<div class="container color-light">
-  <p class="sm">Search a Pokemon</p>
-  <form>  
-    <input type="text" name="PSearchField" placeholder="Search Pokemon" [(ngModel)]="pokeLetter">
-    <input type="submit" name="PSubmitButton" [value]="btnText" (click)="findPokemon()">
-  </form>
+<div class="background">
+  <div class="color-light">
+
+    <div class="container">
+      <h1 class="h1colour centered">CODE NAME GENERATOR</h1>
+    </div>
+
+    <div class="container">
+      <div class="centered">
+          <input type="text" name="PSearchField" placeholder="Search Pokemon" [(ngModel)]="pokeLetter">
+      </div>
+    </div>
+    <div class="container">
+        <div class="centered">
+          <input type="submit" name="PSubmitButton" [value]="btnText" (click)="findPokemon()">
+        </div>
+    </div>
+
+  </div>
 </div>

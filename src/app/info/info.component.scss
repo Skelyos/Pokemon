@@ -1,6 +1,6 @@
 .container {
     display: grid;
-    grid-template-columns: 50% auto;
+    grid-template-columns: 25% auto;
 }
 .col {
     padding: .4em 1.3em;
@@ -13,7 +13,7 @@
     background: #2885C4;
 }
 .color-light {
-    background: #57B3F1;
+    background: #fff;
 }
 
 input.txt {
@@ -37,4 +37,12 @@ input.btn {
     padding:.5em;
     font-weight:bold;
     cursor:pointer;
+}
+
+.background {
+    background: #2885C4;
+}
+
+.textColour {
+    color: #2e9ce6;
 }
