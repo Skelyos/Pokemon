@@ -56,7 +56,7 @@ export class AdjectiveService {
       });
   }
 
-  searchPokemonArray(userInput: string) {
+  returnRandomPokemon(userInput: string) {
     this.pokemonFilteredArray = [];
     for (let index = 0; index < this.pokemonArray.length; index++) {
       if (this.pokemonArray[index].name.substring(0, 1) === userInput.toLowerCase().substring(0, 1)) {

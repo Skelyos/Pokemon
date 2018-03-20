@@ -10,9 +10,12 @@ import { AdjectiveService } from '../../service/adjective.service';
 })
 export class InfoComponent implements OnInit {
 
-  imageIndex: number = 0;
+  imageIndex = 2;
   imgBtnText: String = 'Next Image';
+  backBtn: String = 'Back';
   resultValue: string;
+  Height: string;
+  Weight: string;
 
   SearchPId: string;
   SearchPName: string;
@@ -38,6 +41,8 @@ export class InfoComponent implements OnInit {
           this.SearchPName = this.adjective.assignAdjective();
           this.MoveList = returnValue.moves;
           this.Types = returnValue.types;
+          this.Height = returnValue.height + 'cm';
+          this.Weight = returnValue.weight + 'kg';
           for (const sprite in returnValue.sprites) {
             if (returnValue.sprites[sprite] != null) {
               this.SpritesList.push(returnValue.sprites[sprite]);
@@ -66,6 +71,10 @@ export class InfoComponent implements OnInit {
 
   incrementSpriteIndex() {
     this.imageIndex++;
+  }
+
+  goBack() {
+    this.router.navigate(['/']);
   }
 
 }

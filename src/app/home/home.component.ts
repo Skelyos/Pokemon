@@ -13,6 +13,7 @@ export class HomeComponent implements OnInit {
 
   pokeLetter: string;
   pokemonName: string;
+  textBoxTxt = 'Choose a letter';
   btnText: String = 'Search';
 
   constructor(public Adjective: AdjectiveService, private router: Router) { }
@@ -22,7 +23,7 @@ export class HomeComponent implements OnInit {
   }
 
   findPokemon() {
-    this.router.navigate(['info', {pokemonName: this.Adjective.searchPokemonArray(this.pokeLetter)}]);
+    this.router.navigate(['info', {pokemonName: this.Adjective.returnRandomPokemon(this.pokeLetter)}]);
   }
 
 }

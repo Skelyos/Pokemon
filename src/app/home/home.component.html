@@ -7,12 +7,12 @@
 
     <div class="container">
       <div class="centered">
-          <input type="text" name="PSearchField" placeholder="Search Pokemon" [(ngModel)]="pokeLetter">
+          <input type="text" name="PSearchField" [placeholder]="textBoxTxt" [(ngModel)]="pokeLetter">
       </div>
     </div>
     <div class="container">
         <div class="centered">
-          <input type="submit" name="PSubmitButton" [value]="btnText" (click)="findPokemon()">
+          <input type="button" name="PSubmitButton" [value]="btnText" (click)="findPokemon()">
         </div>
     </div>
 
