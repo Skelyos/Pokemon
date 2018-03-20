@@ -1,14 +1,7 @@
 <div class="container color-light">
-  <h1>{{ SearchPId }} {{ SearchPName }}</h1>  
-</div>
-
-<div class="container color-light">
-  <div class="row">
-    <div class="col">
-      <p class="sm">Search a Pokemon</p>
-      <form>  
-        <input type="text" name="PSearchField" placeholder="Search Pokemon" [(ngModel)]="pokeLetter">
-        <input type="submit" name="PSubmitButton" [value]="btnText" (click)="findPokemon()">
-      </form>
-  </div>
+  <p class="sm">Search a Pokemon</p>
+  <form>  
+    <input type="text" name="PSearchField" placeholder="Search Pokemon" [(ngModel)]="pokeLetter">
+    <input type="submit" name="PSubmitButton" [value]="btnText" (click)="findPokemon()">
+  </form>
 </div>
