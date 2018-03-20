@@ -13,13 +13,15 @@ import { AdjectiveService } from '../service/adjective.service';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { InfoComponent } from './info/info.component';
+import { TestComponent } from './test/test.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    InfoComponent
+    InfoComponent,
+    TestComponent
   ],
   imports: [
     BrowserModule,
