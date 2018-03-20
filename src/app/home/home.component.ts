@@ -23,7 +23,6 @@ export class HomeComponent implements OnInit {
 
   findPokemon() {
     this.router.navigate(['info', {pokemonName: this.Adjective.searchPokemonArray(this.pokeLetter)}]);
-    debugger;
   }
 
 }

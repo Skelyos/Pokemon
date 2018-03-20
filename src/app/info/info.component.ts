@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PokemonService } from '../../service/pokemon.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AdjectiveService } from '../../service/adjective.service';
 
 @Component({
@@ -20,13 +20,16 @@ export class InfoComponent implements OnInit {
   SpritesList = [];
   Types = [];
 
-  noDamageTo = [];
-  halfDamageTo = [];
-  doubleDamageTo = [];
+  weaknessArray = [];
 
   pokemonName: string;
 
-  constructor(public PService: PokemonService, private route: ActivatedRoute, private adjective: AdjectiveService) { }
+  constructor(
+    public PService: PokemonService,
+    private route: ActivatedRoute,
+    private adjective: AdjectiveService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
     this.route.params.subscribe(param => {
@@ -42,24 +45,21 @@ export class InfoComponent implements OnInit {
           }
           this.Types.forEach(type => {
             this.PService.searchWeakness(type.type.name).subscribe((returnType) => {
-              const damageRelations = returnType['damage_relations'];
-              if (damageRelations['no_damage_to'] != null) {
-                this.noDamageTo.push(damageRelations['no_damage_to']);
+              for (let noD = 0; noD < returnType.damage_relations.no_damage_to.length; noD++) {
+                this.weaknessArray.push(returnType.damage_relations.no_damage_to[noD].name);
               }
-              debugger;
-              if (damageRelations['half_damage_to'] != null) {
-                this.halfDamageTo.push(damageRelations['half_damage_to']);
+              for (let halfD = 0; halfD < returnType.damage_relations.half_damage_to.length; halfD++) {
+                this.weaknessArray.push(returnType.damage_relations.half_damage_to[halfD].name);
               }
-              debugger;
-              if(damageRelations['double_damage_from'] != null) {
-                this.doubleDamageTo.push(damageRelations['double_damage_from']);
+              for (let doubleD = 0; doubleD < returnType.damage_relations.double_damage_from.length; doubleD++) {
+                this.weaknessArray.push(returnType.damage_relations.double_damage_from[doubleD].name);
               }
-              debugger;
             });
           });
         });
       } else {
         console.log('There is no peram in URL');
+        this.router.navigate(['/']);
       }
     });
   }

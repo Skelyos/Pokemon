@@ -1,3 +1,7 @@
+<div class="container color-light">
+  <h1>{{ SearchPId }} {{ SearchPName }}</h1>  
+</div>
+
 <div class="row">
   <div class = "col">
       <div *ngFor = "let sprite of SpritesList; let i = index">
@@ -41,17 +45,7 @@
       <h2> Weakness list: </h2>
     </div>
     <div class="col">
-      <span *ngFor = "let weakness of noDamageTo;">
-        {{ weakness }}
-      </span>
-    </div>
-    <div class="col">
-      <span *ngFor = "let weakness of halfDamageTo;">
-        {{ weakness }}
-      </span>
-    </div>
-    <div class="col">
-      <span *ngFor = "let weakness of doubleDamageTo;">
+      <span *ngFor = "let weakness of weaknessArray;">
         {{ weakness }}
       </span>
     </div>
