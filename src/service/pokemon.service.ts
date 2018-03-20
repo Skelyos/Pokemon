@@ -20,4 +20,5 @@ export class PokemonService {
   searchWeakness(type) {
     return this.http.get(this.baseUrl + 'type/' + type + '/');
   }
+
 }
