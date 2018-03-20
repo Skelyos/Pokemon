@@ -12,7 +12,7 @@ export class InfoComponent implements OnInit {
 
   imageIndex = 2;
   imgBtnText: String = 'Next Image';
-  backBtn: String = 'Back';
+  backBtn: String = 'Generate name';
   resultValue: string;
   Height: string;
   Weight: string;
