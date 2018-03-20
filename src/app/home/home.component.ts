@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { PokemonService } from '../../service/pokemon.service';
 import { Observable } from 'rxjs/Observable';
+import { AdjectiveService } from '../../service/adjective.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -9,57 +11,19 @@ import { Observable } from 'rxjs/Observable';
 })
 export class HomeComponent implements OnInit {
 
+  pokeLetter: string;
   pokemonName: string;
   btnText: String = 'Search';
-  imgBtnText: String = 'Next Image';
-  resultValue: string;
-  SearchPId: string;
-  SearchPName: string;
-  MoveList = [];
-  SpritesList = [];
-  Types = [];
-  noDamageTo = [];
-  halfDamageTo = [];
-  doubleDamageTo = [];
-  imageIndex: number = 0;
 
-  constructor(public PService: PokemonService) { }
+  constructor(public Adjective: AdjectiveService, private router: Router) { }
 
   ngOnInit() {
+    this.Adjective.makePokemonArray();
   }
 
   findPokemon() {
-    this.PService.searchPokemon(this.pokemonName).subscribe((returnValue) => {
-      this.SearchPId = returnValue.id;
-      this.SearchPName = returnValue.name;
-      this.MoveList = returnValue.moves;
-      this.Types = returnValue.types;
-      for (const sprite in returnValue.sprites) {
-        if (returnValue.sprites[sprite] != null) {
-          this.SpritesList.push(returnValue.sprites[sprite]);
-        }
-      }
-      this.Types.forEach(type => {
-        this.PService.searchWeakness(type.type.name).subscribe((returnType) => {
-          const damageRelations = returnType['damage_relations'];
-          if (damageRelations['no_damage_to'] != null) {
-            this.noDamageTo.push(damageRelations['no_damage_to']);
-          }
-          debugger;
-          if (damageRelations['half_damage_to'] != null) {
-            this.halfDamageTo.push(damageRelations['half_damage_to']);
-          }
-          debugger;
-          if(damageRelations['double_damage_from'] != null) {
-            this.doubleDamageTo.push(damageRelations['double_damage_from']);
-          }
-          debugger;
-        });
-      });
-    });
+    this.router.navigate(['info', {pokemonName: this.Adjective.searchPokemonArray(this.pokeLetter)}]);
+    debugger;
   }
 
-  incrementSpriteIndex() {
-    this.imageIndex++;
-  }
 }
